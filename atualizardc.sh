@@ -13,21 +13,23 @@ for KILLPID in `ps ax | grep $NAME | awk ' { print $1;}'`; do
 done
 
 
-echo "-------baixando a versao mais recente do discord--------"
+echo "-------downloading the most recent discord version--------"
 wget -O "$FILE" "$URL"
 
 if [ $? -eq 0 ]; then
-	echo "----------download concluido. iniciando instalacao----------"
+	echo "----------download concluded. installation initiating----------"
 	sudo dpkg -i "$FILE"
 
-	echo "-----------limpando unused-------------"
+	echo "-----------cleaning  unused-------------"
 	rm "$FILE"
 	
-	echo "------- verificando e corrigindo dependencias ---------"
+	echo "------- veryfying and correcting depedencies ---------"
 	sudo apt-get install -f -y
-	echo "---------- discord atualizado ------------"
+	echo "---------- discord updated :p ------------"
+
+	notify-send "Discord" "update completed"
 else
-	echo "-------falha ao realizar o download :(-------"
+	echo "------- download failed :(-------"
 
 fi
 
