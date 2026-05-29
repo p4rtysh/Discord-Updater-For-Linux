@@ -28,6 +28,8 @@ if [ $? -eq 0 ]; then
 	echo "---------- discord updated :p ------------"
 
 	notify-send "Discord" "update completed"
+
+	discord
 else
 	echo "------- download failed :(-------"
 
